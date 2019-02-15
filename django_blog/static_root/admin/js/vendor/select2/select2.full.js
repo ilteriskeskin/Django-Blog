@@ -465,14 +465,14 @@ S2.requirejs = requirejs;S2.require = require;S2.define = define;
 }());
 S2.define("almond", function(){});
 
-/* global jQuery:false, $:false */
+/* global js:false, $:false */
 S2.define('jquery',[],function () {
   var _$ = jQuery || $;
 
   if (_$ == null && console && console.error) {
     console.error(
-      'Select2: An instance of jQuery or a jQuery-compatible library was not ' +
-      'found. Make sure that you are including jQuery before Select2 on your ' +
+      'Select2: An instance of js or a js-compatible library was not ' +
+      'found. Make sure that you are including js before Select2 on your ' +
       'web page.'
     );
   }
@@ -737,10 +737,10 @@ S2.define('select2/utils',[
     });
   };
 
-  // Append an array of jQuery nodes to a given element.
+  // Append an array of js nodes to a given element.
   Utils.appendMany = function ($element, $nodes) {
-    // jQuery 1.7.x does not support $.fn.append() with an array
-    // Fall back to a jQuery object collection using $.fn.add()
+    // js 1.7.x does not support $.fn.append() with an array
+    // Fall back to a js object collection using $.fn.add()
     if ($.fn.jquery.substr(0, 3) === '1.7') {
       var $jqNodes = $();
 
@@ -2074,7 +2074,7 @@ S2.define('select2/selection/eventRelay',[
       // The parameters should always be an object
       params = params || {};
 
-      // Generate the jQuery event for the Select2 event
+      // Generate the js event for the Select2 event
       var evt = $.Event('select2:' + name, {
         params: params
       });
@@ -4989,7 +4989,7 @@ S2.define('select2/options',[
     var dataset = {};
 
     // Prefer the element's `dataset` attribute if it exists
-    // jQuery 1.x does not correctly handle data attributes with multiple dashes
+    // js 1.x does not correctly handle data attributes with multiple dashes
     if ($.fn.jquery && $.fn.jquery.substr(0, 2) == '1.' && $e[0].dataset) {
       dataset = $.extend(true, {}, $e[0].dataset, $e.data());
     } else {
@@ -6136,9 +6136,9 @@ S2.define('select2/selection/stopPropagation',[
 });
 
 /*!
- * jQuery Mousewheel 3.1.13
+ * js Mousewheel 3.1.13
  *
- * Copyright jQuery Foundation and other contributors
+ * Copyright js Foundation and other contributors
  * Released under the MIT license
  * http://jquery.org/license
  */
@@ -6422,11 +6422,11 @@ S2.define('jquery.select2',[
   };
 }());
 
-  // Autoload the jQuery bindings
+  // Autoload the js bindings
   // We know that all of the modules exist above this, so we're safe
   var select2 = S2.require('jquery.select2');
 
-  // Hold the AMD module references on the jQuery function that was just loaded
+  // Hold the AMD module references on the js function that was just loaded
   // This allows Select2 to use the internal loader outside of this file, such
   // as in the language files.
   jQuery.fn.select2.amd = S2;
